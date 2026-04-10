@@ -46,7 +46,7 @@ A aplicação consome dados de uma **API externa** e exibe as informações em t
 |-----------|-----------|
 | **HTML5** | Estrutura da página |
 | **CSS3** | Estilização com arquivo externo (`styles.css`) |
-| **JavaScript ** | Lógica de frontend, manipulação do DOM e requisições HTTP |
+| **JavaScript** | Lógica de frontend, manipulação do DOM e requisições HTTP |
 
 > **Sem frameworks**: Projeto desenvolvido com HTML, CSS e JavaScript puro.
 
