@@ -14,7 +14,6 @@
             <button class="ativo" onclick="trocarAba('playlists', this)">Playlists</button>
             <button onclick="trocarAba('musicas', this)">Músicas</button>
             <button onclick="trocarAba('comentarios', this)">Comentários</button>
-
         </nav>
 
         <main class="conteudo">
@@ -59,8 +58,8 @@
                     </div>
                     <div class="linha">
                         <input type="text" id="musica-album" placeholder="Álbum">
-                        <input type="text" id="musica-ano" placeholder="Ano">
-                        <input type="text" id="musica-duracao" placeholder="Duração">
+                        <input type="number" id="musica-ano" placeholder="Ano">
+                        <input type="text" id="musica-duracao" placeholder="Duração (ex: 02:30)">
                     </div>
                     <button class="btn-salvar" type="submit">Salvar</button>
                 </form>
@@ -69,7 +68,7 @@
                     <thead>
                         <tr>
                             <th>Playlist</th>
-                            <th>Nome</th>
+                            <th>Nome da música</th>
                             <th>Artista</th>
                             <th>Álbum</th>
                             <th>Ano</th>
@@ -121,7 +120,7 @@
     <script src="scripts/utils.js" type="text/javascript"></script>
 
     <script>
-        var API_BASE_URL = 'http://127.0.0.1:5000';
+        var URL_API = 'http://127.0.0.1:5000';
 
         var playlists = [];
         var musicas = [];

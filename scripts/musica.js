@@ -26,7 +26,7 @@ function carregarMusicas() {
         html += '<td>' + (musicas[i].artista || '-') + '</td>';
         html += '<td>' + (musicas[i].album || '-') + '</td>';
         html += '<td>' + (musicas[i].ano || '-') + '</td>';
-        html += '<td>' + (musicas[i].duracao || '-') + '</td>';
+        html += '<td>' + (formatarDuracao(musicas[i].duracao) || '-') + '</td>';
         html += '<td class="acoes">';
         html += '<button class="btn-editar" onclick="editarMusica(' + musicas[i].id + ')">Editar</button>';
         html += '<button class="btn-excluir" onclick="excluirMusica(' + musicas[i].id + ')">Excluir</button>';
@@ -47,7 +47,7 @@ function salvarMusica(event) {
         artista: document.getElementById('musica-artista').value,
         album: document.getElementById('musica-album').value,
         ano: document.getElementById('musica-ano').value,
-        duracao: document.getElementById('musica-duracao').value
+        duracao: converteDuracaoParaSegundos(document.getElementById('musica-duracao').value)
     };
 
     var metodo = id ? 'PUT' : 'POST';
@@ -100,7 +100,7 @@ function editarMusica(id) {
     document.getElementById('musica-artista').value = item.artista || '';
     document.getElementById('musica-album').value = item.album || '';
     document.getElementById('musica-ano').value = item.ano || '';
-    document.getElementById('musica-duracao').value = item.duracao || '';
+    document.getElementById('musica-duracao').value = formatarDuracao(item.duracao)  || 0;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
