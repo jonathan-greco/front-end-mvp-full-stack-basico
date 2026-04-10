@@ -81,7 +81,7 @@ A aplicação consome dados de uma **API externa** e exibe as informações em t
    cd front-end-mvp-full-stack-basico
    ```
 
-2. Abra o arquivo index.html diretamente no navegador:
+2. Abra o arquivo **index.html** diretamente no navegador:
 
 3. Certifique-se de que o backend está rodando em http://127.0.0.1:5000.
 
