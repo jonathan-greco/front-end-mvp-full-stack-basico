@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Playlists</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <nav class="menu">
+            <button class="ativo" onclick="trocarAba('playlists', this)">Playlists</button>
+            <button onclick="trocarAba('musicas', this)">Músicas</button>
+            <button onclick="trocarAba('comentarios', this)">Comentários</button>
+
+        </nav>
+
+        <main class="conteudo">
+            <section id="playlists" class="aba ativo">
+                <h2>Playlists</h2>
+
+                <form onsubmit="salvarPlaylist(event)">
+                    <div class="linha">
+                        <input type="hidden" id="playlist-id">
+                        <input type="text" id="playlist-nome" placeholder="Nome da playlist" required>
+                        <input type="text" id="playlist-descricao" placeholder="Descrição">
+                    </div>
+                    <button class="btn-salvar" type="submit">Salvar</button>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Músicas</th>
+                            <th>Comentários</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-playlists"></tbody>
+                </table>
+            </section>
+
+            <section id="musicas" class="aba">
+                <h2>Músicas</h2>
+
+                <form onsubmit="salvarMusica(event)">
+
+                    <div class="linha">
+                        <input type="hidden" id="musica-id">
+                        <select id="musica-playlist" required>
+                            <option value="">Selecione uma playlist</option>
+                        </select>
+                        <input type="text" id="musica-nome" placeholder="Nome da música" required>
+                        <input type="text" id="musica-artista" placeholder="Artista" required>
+                    </div>
+                    <div class="linha">
+                        <input type="text" id="musica-album" placeholder="Álbum">
+                        <input type="text" id="musica-ano" placeholder="Ano">
+                        <input type="text" id="musica-duracao" placeholder="Duração">
+                    </div>
+                    <button class="btn-salvar" type="submit">Salvar</button>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Playlist</th>
+                            <th>Nome</th>
+                            <th>Artista</th>
+                            <th>Álbum</th>
+                            <th>Ano</th>
+                            <th>Duração</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-musicas"></tbody>
+                </table>
+            </section>
+
+            <section id="comentarios" class="aba">
+                <h2>Comentários</h2>
+
+                <form onsubmit="salvarComentario(event)">
+
+                    <div class="linha">
+                        <input type="hidden" id="comentario-id">
+                        <select id="comentario-playlist" required>
+                            <option value="">Selecione uma playlist</option>
+                        </select>
+                        <input type="text" id="comentario-usuario" placeholder="Nome do usuário" required>
+                    </div>
+                    <div class="linha">
+                        <textarea id="comentario-texto" placeholder="Escreva o comentário" rows="3" required></textarea>
+                    </div>
+                    <button class="btn-salvar" type="submit">Salvar</button>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Playlist</th>
+                            <th>Usuário</th>
+                            <th>Comentário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-comentarios"></tbody>
+
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/playlist.js" type="text/javascript"></script>
+    <script src="scripts/musica.js" type="text/javascript"></script>
+    <script src="scripts/comentario.js" type="text/javascript"></script>
+    <script src="scripts/utils.js" type="text/javascript"></script>
+
+    <script>
+        var API_BASE_URL = 'http://127.0.0.1:5000';
+
+        var playlists = [];
+        var musicas = [];
+        var comentarios = [];
+        
+        function carregarTudo() {
+            getDados('playlists', function (erro, dados) {
+                if (erro) {
+                    mostrarMensagem(erro);
+                    return;
+                }
+
+                playlists = dados.playlists || [];
+                carregarPlaylists();
+                carregarSelects();
+                carregarMusicas();
+                carregarComentarios();
+            });
+
+            getDados('musicas', function (erro, dados) {
+                if (erro) {
+                    mostrarMensagem(erro);
+                    return;
+                }
+
+                musicas = dados.musicas || [];
+                carregarMusicas();
+            });
+
+            getDados('comentarios', function (erro, dados) {
+                if (erro) {
+                    mostrarMensagem(erro);
+                    return;
+                }
+
+                comentarios = dados.comentarios || [];
+                carregarComentarios();
+            });
+        }        
+        
+        // Carrega todos os dados e informações das abas
+        carregarTudo();
+    </script>
+</body>
+
+</html>
