@@ -5,7 +5,7 @@ function carregarPlaylists() {
     var tbody = document.getElementById('tabela-playlists');
 
     if (playlists.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="3" class="vazio">Nenhuma playlist cadastrada.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="vazio">Nenhuma playlist cadastrada.</td></tr>';
         return;
     }
 

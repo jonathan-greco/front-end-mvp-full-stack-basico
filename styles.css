@@ -87,19 +87,14 @@ form {
     margin-bottom: 10px;
 }
 
-input,
-select,
-textarea,
-button {
+input,select,textarea,button {
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
     border-radius: 3px;
 }
 
-input,
-select,
-textarea {
+input,select,textarea {
     flex: 1;
     min-width: 180px;
     width: 100%;
@@ -160,6 +155,7 @@ th {
     padding: 6px 10px;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
 
 .btn-excluir {
@@ -169,4 +165,5 @@ th {
     padding: 6px 10px;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
