@@ -134,6 +134,7 @@
         var comentarios = [];
         
         function carregarTudo() {
+            // carregamento dos dados da playlist através da api
             getDados('playlists', function (erro, dados) {
                 if (erro) {
                     mostrarMensagem(erro);
@@ -147,6 +148,7 @@
                 carregarComentarios();
             });
 
+            // carregamento dos dados de músicas através da api
             getDados('musicas', function (erro, dados) {
                 if (erro) {
                     mostrarMensagem(erro);
@@ -157,6 +159,7 @@
                 carregarMusicas();
             });
 
+            // carregamento dos dados dos comentários através da api
             getDados('comentarios', function (erro, dados) {
                 if (erro) {
                     mostrarMensagem(erro);
