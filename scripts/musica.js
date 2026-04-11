@@ -58,6 +58,7 @@ function salvarMusica(event) {
                 return;
             }
 
+            document.getElementById('musica-id').value = '';
             document.getElementById('musica-nome').value = '';
             document.getElementById('musica-artista').value = '';
             document.getElementById('musica-album').value = '';
@@ -74,6 +75,7 @@ function salvarMusica(event) {
                 return;
             }
 
+            document.getElementById('musica-id').value = '';
             document.getElementById('musica-nome').value = '';
             document.getElementById('musica-artista').value = '';
             document.getElementById('musica-album').value = '';

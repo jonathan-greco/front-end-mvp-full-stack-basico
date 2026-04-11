@@ -52,6 +52,7 @@ function salvarComentario(event) {
                 return;
             }
 
+            document.getElementById('comentario-id').value = '';
             document.getElementById('comentario-usuario').value = '';
             document.getElementById('comentario-texto').value = '';
             mostrarMensagem('Comentário salvo com sucesso.');
@@ -65,6 +66,7 @@ function salvarComentario(event) {
                 return;
             }
 
+            document.getElementById('comentario-id').value = '';
             document.getElementById('comentario-usuario').value = '';
             document.getElementById('comentario-texto').value = '';
             mostrarMensagem('Comentário alterado com sucesso.');

@@ -71,6 +71,7 @@ function salvarPlaylist(event) {
                 return;
             }
 
+            document.getElementById('playlist-id').value = '';
             document.getElementById('playlist-nome').value = '';
             document.getElementById('playlist-descricao').value = '';
             mostrarMensagem('Playlist salva com sucesso.');
@@ -84,6 +85,7 @@ function salvarPlaylist(event) {
                 return;
             }
 
+            document.getElementById('playlist-id').value = '';
             document.getElementById('playlist-nome').value = '';
             document.getElementById('playlist-descricao').value = '';
             mostrarMensagem('Playlist alterada com sucesso.');
