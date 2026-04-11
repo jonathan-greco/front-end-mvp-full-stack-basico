@@ -2,14 +2,14 @@
 CRUD: MÚSICAS
 */
 function carregarMusicas() {
-    var tbody = document.getElementById('tabela-musicas');
+    let tbody = document.getElementById('tabela-musicas');
 
     if (musicas.length === 0) {
         tbody.innerHTML = '<tr><td colspan="7" class="vazio">Nenhuma música cadastrada.</td></tr>';
         return;
     }
 
-    var html = '';
+    let html = '';
     for (var i = 0; i < musicas.length; i++) {
         var playlistNome = '-';
 
@@ -39,18 +39,25 @@ function carregarMusicas() {
 
 function salvarMusica(event) {
     event.preventDefault();
-    var id = document.getElementById('musica-id').value;
+    const  id = document.getElementById('musica-id').value;
+    const duracao = converteDuracaoParaSegundos(document.getElementById('musica-duracao').value);
 
-    var dados = {
+    //verifica se o valor do campo duração está correto, se não, emite um alerta e interrompe o cadastro.
+    if(!duracao){
+        alert('Valor inváido para o campo Duração!\nCertifique-se de usar números no formato MM:SS');
+        return;
+    }
+
+    const dados = {
         playlist_id: document.getElementById('musica-playlist').value,
         nome_musica: document.getElementById('musica-nome').value,
         artista: document.getElementById('musica-artista').value,
         album: document.getElementById('musica-album').value,
         ano: document.getElementById('musica-ano').value,
-        duracao: converteDuracaoParaSegundos(document.getElementById('musica-duracao').value)
+        duracao: duracao
     };
 
-    var metodo = id ? 'PUT' : 'POST';
+    const metodo = id ? 'PUT' : 'POST';
     if (metodo == 'POST') {
         postDados('musica', dados, function (erro) {
             if (erro) {
@@ -88,7 +95,7 @@ function salvarMusica(event) {
 }
 
 function editarMusica(id) {
-    var item = musicas.find(function (m) {
+    const item = musicas.find(function (m) {
         return String(m.id) === String(id);
     });
     if (!item) {

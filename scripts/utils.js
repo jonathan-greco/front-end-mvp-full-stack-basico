@@ -121,14 +121,14 @@ function converteDuracaoParaSegundos(formatoMMSS) {
   const partes = formatoMMSS.trim().split(':');
   
   if (partes.length !== 2) {
-    throw new Error('Formato inválido. Use MM:SS');
+    return null;
   }
 
   const min = parseInt(partes[0], 10);
   const seg = parseInt(partes[1], 10);
 
-  if (isNaN(min) || isNaN(seg) || seg < 0 || seg > 59) {
-    throw new Error('Valores inválidos. Certifique-se de usar números no formato MM:SS');
+  if (seg < 0 || seg > 59) {
+    return null;
   }
 
   return min * 60 + seg;
