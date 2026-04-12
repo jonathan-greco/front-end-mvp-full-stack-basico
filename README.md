@@ -11,7 +11,7 @@ Este é um sistema simples e funcional para organizar playlists musicais. A apli
 - Registrar **comentários** de usuários em playlists
 - Navegação por abas intuitivas (*Playlists*, *Músicas*, *Comentários*)
 
-A aplicação consome dados de uma **API externa** e exibe as informações em tabelas dinâmicas, com operações de CRUD completas.
+A aplicação consome dados de uma api externa **[API Gerenciador de Playlists](https://github.com/jonathan-greco/back-end-mvp-full-stack-basico)** e exibe as informações em tabelas dinâmicas, com operações de CRUD completas.
 
 ---
 
