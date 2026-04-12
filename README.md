@@ -71,7 +71,7 @@ A aplicação consome dados de uma api externa **[API Gerenciador de Playlists](
 ## Como Rodar o Projeto
 
 ### Pré-requisitos
-- Backend API rodando em `http://127.0.0.1:5000` com os endpoints:
+- Backend **[API Gerenciador de Playlists](https://github.com/jonathan-greco/back-end-mvp-full-stack-basico)** rodando em `http://127.0.0.1:5000` com os endpoints.
 
 ### Passos
 1. Clone ou baixe este repositório:
@@ -81,7 +81,7 @@ A aplicação consome dados de uma api externa **[API Gerenciador de Playlists](
    cd front-end-mvp-full-stack-basico
    ```
 
-2. Abra o arquivo **index.html** diretamente no navegador:
+2. Abra o arquivo **index.html** diretamente no navegador.
 
 
 ## Autor
